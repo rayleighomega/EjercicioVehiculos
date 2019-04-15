@@ -28,9 +28,6 @@ public class Car extends Vehicle {
 		this.wheels.add(rightWheel);
 	}
 
-	public List<Wheel> Get()
-	{
-		return this.wheels;
-	}
+
 
 }

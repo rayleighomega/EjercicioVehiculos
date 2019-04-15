@@ -50,11 +50,12 @@ public class Main {
         System.out.println(car.plate);
         System.out.println(car.color);
 
-        List<Wheel> carWheelsResult = car.Get();
+        List<Wheel> carWheelsResult = car.wheels;
 
         for (Wheel c : carWheelsResult)
         {
-            System.out.println( c. );
+            System.out.println( c.getBrand() );
+            System.out.println( c.getDiameter() );
         }
 
     }
