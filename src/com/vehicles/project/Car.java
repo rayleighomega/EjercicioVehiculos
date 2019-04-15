@@ -20,11 +20,17 @@ public class Car extends Vehicle {
 		Wheel rightWheel = wheels.get(0);
 		Wheel leftWheel = wheels.get(1);
 
-		if (!rightWheel.equals(leftWheel))
+		/*if (!rightWheel.equals(leftWheel))
 			throw new Exception();
+		*/
 
 		this.wheels.add(leftWheel);
 		this.wheels.add(rightWheel);
+	}
+
+	public List<Wheel> Get()
+	{
+		return this.wheels;
 	}
 
 }
