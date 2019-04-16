@@ -10,7 +10,9 @@ public class Main {
 
         Scanner in = new Scanner(System.in);
 
-        //Input data
+        /*#######################################################
+            Input Data
+        #######################################################*/
         Map<String, String> carInputs = new HashMap<>();
 
         System.out.println("Introduce los datos del vehiculo: ");
@@ -26,7 +28,9 @@ public class Main {
         //Create a car
         Vehicle car = new Car(carInputs.get("Plate"), carInputs.get("Brand"), carInputs.get("Color"));
 
-        //Add wheels
+        /*#######################################################
+            Add wheels
+        #######################################################*/
         List<Wheel> carFrontWheels = new ArrayList<>();
         List<Wheel> carBackWheels = new ArrayList<>();
         Map<String, String> mapWheelsBrands = new HashMap<>();
@@ -60,7 +64,6 @@ public class Main {
         carBackWheels.add(new Wheel(mapWheelsBrands.get("BackLeftWheelBrand"), mapWheelsDiameters.get("BackLeftWheelDiameter")));
         carBackWheels.add(new Wheel(mapWheelsBrands.get("BackRightWheelBrand"), mapWheelsDiameters.get("BackRightWheelDiameter")));
 
-
         try
         {
             ((Car) car).addWheels(carFrontWheels, carBackWheels);
@@ -70,6 +73,9 @@ public class Main {
             System.out.println("Error en los datos de las ruedas");
         }
 
+        /*#######################################################
+            Results
+        #######################################################*/
         System.out.println(car.brand);
         System.out.println(car.plate);
         System.out.println(car.color);
