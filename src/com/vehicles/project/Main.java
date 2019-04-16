@@ -11,7 +11,7 @@ public class Main {
         Scanner in = new Scanner(System.in);
 
         /*#######################################################
-            Input Data
+            Create a car
         #######################################################*/
         Map<String, String> carInputs = new HashMap<>();
 
@@ -25,7 +25,6 @@ public class Main {
         System.out.print("Color: ");
         carInputs.put("Color", in.nextLine());
 
-        //Create a car
         Vehicle car = new Car(carInputs.get("Plate"), carInputs.get("Brand"), carInputs.get("Color"));
 
         /*#######################################################
