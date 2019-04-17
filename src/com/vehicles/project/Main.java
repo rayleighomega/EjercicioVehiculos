@@ -13,59 +13,38 @@ public class Main {
         /*#######################################################
             Create a car
         #######################################################*/
-        Map<String, String> carInputs = new HashMap<>();
+        Map<String, String> vehicleInputs = new HashMap<>();
 
         System.out.println("Introduce los datos del vehiculo: ");
         System.out.print("Matricula: ");
-        carInputs.put("Plate", in.nextLine());
+        vehicleInputs.put("Plate", in.nextLine());
 
         System.out.print("Marca: ");
-        carInputs.put("Brand", in.nextLine());
+        vehicleInputs.put("Brand", in.nextLine());
 
         System.out.print("Color: ");
-        carInputs.put("Color", in.nextLine());
+        vehicleInputs.put("Color", in.nextLine());
 
-        Vehicle car = new Car(carInputs.get("Plate"), carInputs.get("Brand"), carInputs.get("Color"));
+        System.out.println("Introduce tipo del vehiculo:");
+        System.out.println("1. Coche");
+        System.out.println("2. Bicicleta");
 
-        /*#######################################################
-            Add wheels
-        #######################################################*/
-        List<Wheel> carFrontWheels = new ArrayList<>();
-        List<Wheel> carBackWheels = new ArrayList<>();
-        Map<String, String> mapWheelsBrands = new HashMap<>();
-        Map<String, Double> mapWheelsDiameters = new HashMap<>();
+        //Get vehicle type from user
+        int vehicleType = Integer.parseInt(in.next());
 
-        //Front Wheels
-        System.out.print("Marca rueda delantera izquierda: ");
-        mapWheelsBrands.put("FrontLeftWheelBrand", in.nextLine());
-        System.out.print("Diámetro rueda delantera izquierda: ");
-        mapWheelsDiameters.put("FrontLeftWheelDiameter", Double.parseDouble(in.nextLine()));
+        Vehicle v; //must be declared outside of the switch statement
 
-        System.out.print("Marca rueda delantera derecha: ");
-        mapWheelsBrands.put("FrontRightWheelBrand", in.nextLine());
-        System.out.print("Diámetro rueda delantera derecha: ");
-        mapWheelsDiameters.put("FrontRightWheelDiameter", Double.parseDouble(in.nextLine()));
+        switch (vehicleType)
+        {
+            case 1: v = new Car(vehicleInputs.get("Plate"), vehicleInputs.get("Brand"), vehicleInputs.get("Color"));    break;
+            case 2: v = new Bike(vehicleInputs.get("Plate"), vehicleInputs.get("Brand"), vehicleInputs.get("Color"));   break;
+            default: v = new Car(vehicleInputs.get("Plate"), vehicleInputs.get("Brand"), vehicleInputs.get("Color"));
+        }
 
-        carFrontWheels.add(new Wheel(mapWheelsBrands.get("FrontLeftWheelBrand"), mapWheelsDiameters.get("FrontLeftWheelDiameter")));
-        carFrontWheels.add(new Wheel(mapWheelsBrands.get("FrontRightWheelBrand"), mapWheelsDiameters.get("FrontRightWheelDiameter")));
-
-        //Front Wheels
-        System.out.print("Marca rueda trasera izquierda: ");
-        mapWheelsBrands.put("BackLeftWheelBrand", in.nextLine());
-        System.out.print("Diámetro rueda trasera izquierda: ");
-        mapWheelsDiameters.put("BackLeftWheelDiameter", Double.parseDouble(in.nextLine()));
-
-        System.out.print("Marca rueda trasera derecha: ");
-        mapWheelsBrands.put("BackRightWheelBrand", in.nextLine());
-        System.out.print("Diámetro rueda trasera derecha: ");
-        mapWheelsDiameters.put("BackRightWheelDiameter", Double.parseDouble(in.nextLine()));
-
-        carBackWheels.add(new Wheel(mapWheelsBrands.get("BackLeftWheelBrand"), mapWheelsDiameters.get("BackLeftWheelDiameter")));
-        carBackWheels.add(new Wheel(mapWheelsBrands.get("BackRightWheelBrand"), mapWheelsDiameters.get("BackRightWheelDiameter")));
-
+        //Add wheels to the current vehicle
         try
         {
-            ((Car) car).addWheels(carFrontWheels, carBackWheels);
+            v.wheelsDefinition();
         }
         catch (Exception e)
         {
@@ -75,11 +54,11 @@ public class Main {
         /*#######################################################
             Results
         #######################################################*/
-        System.out.println(car.brand);
-        System.out.println(car.plate);
-        System.out.println(car.color);
+        System.out.println(v.brand);
+        System.out.println(v.plate);
+        System.out.println(v.color);
 
-        List<Wheel> carWheelsResult = car.wheels;
+        List<Wheel> carWheelsResult = v.wheels;
 
         for (Wheel c : carWheelsResult)
         {

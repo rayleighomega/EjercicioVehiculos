@@ -1,7 +1,6 @@
 package com.vehicles.project;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public abstract class Vehicle {
 
@@ -34,7 +33,7 @@ public abstract class Vehicle {
 		this.color = color;
 	}
 
-	public boolean CheckPlate(String plate)
+	private boolean CheckPlate(String plate)
 	{
 		int charCounter = 0;
 		int digitCounter = 0;
@@ -67,24 +66,22 @@ public abstract class Vehicle {
 		return plateOk;
 	}
 
-	public void addWheels(List<Wheel> frontWheels, List<Wheel> backWheels) throws Exception {
-		addTwoWheels(frontWheels);
-		addTwoWheels(backWheels);
-	}
 
-	public void addTwoWheels(List<Wheel> wheels) throws Exception {
-		if (wheels.size() != 2)
-			throw new Exception();
+	public abstract void wheelsDefinition() throws Exception;
 
-		Wheel rightWheel = wheels.get(0);
-		Wheel leftWheel = wheels.get(1);
 
-		/*if (!rightWheel.equals(leftWheel))
-			throw new Exception();
-		*/
+	public void addWheels(List<Wheel> frontWheels, List<Wheel> backWheels)
+	{
+		for (Wheel w : frontWheels)
+		{
+			this.wheels.add(w);
+		}
 
-		this.wheels.add(leftWheel);
-		this.wheels.add(rightWheel);
+		for (Wheel w : backWheels)
+		{
+			this.wheels.add(w);
+		}
+
 	}
 
 }
