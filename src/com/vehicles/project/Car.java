@@ -32,11 +32,6 @@ public class Car extends Vehicle {
 		vehicleFrontWheels.add(new Wheel(mapWheelsBrands.get("FrontWheelBrand"), mapWheelsDiameters.get("FrontWheelDiameter")));
 
 		//Back Wheels
-		System.out.print("Marca rueda trasera izquierda: ");
-		mapWheelsBrands.put("BackLeftWheelBrand", in.nextLine());
-		System.out.print("Diámetro rueda trasera izquierda: ");
-		mapWheelsDiameters.put("BackWheelDiameter", Double.parseDouble(in.nextLine()));
-
 		System.out.print("Marca ruedas traseras: ");
 		mapWheelsBrands.put("BackWheelBrand", in.nextLine());
 		System.out.print("Diámetro ruedas traseras: ");
