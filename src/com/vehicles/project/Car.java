@@ -23,32 +23,27 @@ public class Car extends Vehicle {
 
 
 		//Front Wheels, verbose. A new method to catch the inputs is recommended
-		System.out.print("Marca rueda delantera izquierda: ");
-		mapWheelsBrands.put("FrontLeftWheelBrand", in.nextLine());
-		System.out.print("Diámetro rueda delantera izquierda: ");
-		mapWheelsDiameters.put("FrontLeftWheelDiameter", Double.parseDouble(in.nextLine()));
+		System.out.print("Marca rueda delanteras: ");
+		mapWheelsBrands.put("FrontWheelBrand", in.nextLine());
+		System.out.print("Diámetro rueda delanteras: ");
+		mapWheelsDiameters.put("FrontWheelDiameter", Double.parseDouble(in.nextLine()));
 
-		System.out.print("Marca rueda delantera derecha: ");
-		mapWheelsBrands.put("FrontRightWheelBrand", in.nextLine());
-		System.out.print("Diámetro rueda delantera derecha: ");
-		mapWheelsDiameters.put("FrontRightWheelDiameter", Double.parseDouble(in.nextLine()));
-
-		vehicleFrontWheels.add(new Wheel(mapWheelsBrands.get("FrontLeftWheelBrand"), mapWheelsDiameters.get("FrontLeftWheelDiameter")));
-		vehicleFrontWheels.add(new Wheel(mapWheelsBrands.get("FrontRightWheelBrand"), mapWheelsDiameters.get("FrontRightWheelDiameter")));
+		vehicleFrontWheels.add(new Wheel(mapWheelsBrands.get("FrontWheelBrand"), mapWheelsDiameters.get("FrontWheelDiameter")));
+		vehicleFrontWheels.add(new Wheel(mapWheelsBrands.get("FrontWheelBrand"), mapWheelsDiameters.get("FrontWheelDiameter")));
 
 		//Back Wheels
 		System.out.print("Marca rueda trasera izquierda: ");
 		mapWheelsBrands.put("BackLeftWheelBrand", in.nextLine());
 		System.out.print("Diámetro rueda trasera izquierda: ");
-		mapWheelsDiameters.put("BackLeftWheelDiameter", Double.parseDouble(in.nextLine()));
+		mapWheelsDiameters.put("BackWheelDiameter", Double.parseDouble(in.nextLine()));
 
-		System.out.print("Marca rueda trasera derecha: ");
-		mapWheelsBrands.put("BackRightWheelBrand", in.nextLine());
-		System.out.print("Diámetro rueda trasera derecha: ");
-		mapWheelsDiameters.put("BackRightWheelDiameter", Double.parseDouble(in.nextLine()));
+		System.out.print("Marca ruedas traseras: ");
+		mapWheelsBrands.put("BackWheelBrand", in.nextLine());
+		System.out.print("Diámetro ruedas traseras: ");
+		mapWheelsDiameters.put("BackWheelDiameter", Double.parseDouble(in.nextLine()));
 
-		vehicleBackWheels.add(new Wheel(mapWheelsBrands.get("BackLeftWheelBrand"), mapWheelsDiameters.get("BackLeftWheelDiameter")));
-		vehicleBackWheels.add(new Wheel(mapWheelsBrands.get("BackRightWheelBrand"), mapWheelsDiameters.get("BackRightWheelDiameter")));
+		vehicleBackWheels.add(new Wheel(mapWheelsBrands.get("BackWheelBrand"), mapWheelsDiameters.get("BackWheelDiameter")));
+		vehicleBackWheels.add(new Wheel(mapWheelsBrands.get("BackWheelBrand"), mapWheelsDiameters.get("BackWheelDiameter")));
 
 		if (vehicleFrontWheels.size() == 2 && vehicleBackWheels.size() == 2)
 		{
